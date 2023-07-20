@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 6935297923196334793}
   - component: {fileID: 8146632006599425082}
   - component: {fileID: 5656698811907809410}
-  - component: {fileID: 5926233637916943819}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -121,23 +120,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AnchorPrefab: {fileID: 5831908950388203684, guid: f09a13e3d47394ab588884ffd124d732,
-    type: 3}
---- !u!114 &5926233637916943819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2663813057364497163}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dea56a9eaadd1c439095de4f9a371cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedLibrary: {fileID: 11400000, guid: b928019b53819124593dfe99e07b771b,
-    type: 2}
-  m_MaxNumberOfMovingImages: 1
-  m_TrackedImagePrefab: {fileID: 3069996624519275563, guid: 24ece26deb78f454c844d397e2c1f76e,
     type: 3}
 --- !u!1 &5476385985230238266
 GameObject:

@@ -5,16 +5,14 @@ namespace Configuration
 {
     public class LocationServicesConfiguration : MonoBehaviour
     {
-        private Coroutine _locationServiceLauncher;
         private void OnEnable()
         {
-            _locationServiceLauncher = StartCoroutine(StartLocationService());
+            StartCoroutine(StartLocationService());
         }
 
         private void OnDisable()
         {
             StopCoroutine(StartLocationService());
-            _locationServiceLauncher = null;
             Input.location.Stop();
         }
 
@@ -24,7 +22,7 @@ namespace Configuration
             {
                 yield break;
             }
-        
+
             Input.location.Start();
 
             while (Input.location.status == LocationServiceStatus.Initializing)
