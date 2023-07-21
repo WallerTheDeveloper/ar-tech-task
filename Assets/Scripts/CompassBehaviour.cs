@@ -1,8 +1,8 @@
-﻿using System;
-using CesiumForUnity;
+﻿using CesiumForUnity;
 using Google.XR.ARCoreExtensions;
 using Services;
 using UnityEngine;
+using UnityEngine.XR.ARFoundation;
 
 public class CompassBehaviour : MonoBehaviour
 {
@@ -13,13 +13,14 @@ public class CompassBehaviour : MonoBehaviour
     [SerializeField] private CesiumGeoreference _cesiumGeoreference;
 
     [SerializeField] private AREarthManager _arEarthManager;
+
+    [SerializeField] private ARAnchorManager _anchorManager;
     
     private NavigationCalculationService _navigationCalculation;
     
     private void Start()
     {
         _navigationCalculation = new NavigationCalculationService();
-        
         StartCoroutine(_navigationCalculation.CalculateEverySeconds(1f, _arEarthManager, _cesiumGeoreference));
     }
 
@@ -27,7 +28,7 @@ public class CompassBehaviour : MonoBehaviour
     {
         UpdateCompassRotation();
     }
-
+    
     private void UpdateCompassRotation()
     {
         // Get the target latitude and longitude from the NavigationCalculationService
@@ -65,33 +66,6 @@ public class CompassBehaviour : MonoBehaviour
 
         return new Vector3(0f, y, z);
     }
-    // public void UpdateCompassRotation()
-    // {
-    //     // Convert target latitude and longitude to Unity's coordinate system
-    //     Vector3 targetPosition = ConvertToUnityCoordinates(_cesiumGeoreference.latitude, _cesiumGeoreference.longitude);
-    //
-    //     // Calculate the direction from the compass to the target position
-    //     Vector3 direction = (targetPosition - _compassPrefab.transform.position).normalized;
-    //
-    //     // Calculate the rotation needed to look at the target position
-    //     Quaternion targetRotation = Quaternion.LookRotation(direction);
-    //
-    //     // Apply the rotation to the compass
-    //     _compassPrefab.transform.rotation = targetRotation;
-    // }
-    //
-    // private Vector3 ConvertToUnityCoordinates(double latitude, double longitude)
-    // {
-    //     int sceneHeight = 100;
-    //     int maxLatitude = 90;
-    //     
-    //     var latitudeToUnityConversionFactor = sceneHeight / (2 * maxLatitude);
-    //
-    //     float y = (float) (latitude - _cesiumGeoreference.latitude) * latitudeToUnityConversionFactor;
-    //     float z = (float)(longitude - _cesiumGeoreference.longitude) * YourLongitudeToUnityConversionFactor;
-    //
-    //     return new Vector3(0f, y, z);
-    // }
 }
 
 
