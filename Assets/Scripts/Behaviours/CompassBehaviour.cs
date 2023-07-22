@@ -7,8 +7,6 @@ namespace Behaviours
 {
     public class CompassBehaviour : MonoBehaviour
     {
-        [SerializeField] private float speed = 1f;
-    
         [SerializeField] private float distance = 1.5f;
     
         [SerializeField] private GameObject _compassPrefab;
@@ -22,9 +20,7 @@ namespace Behaviours
         private void Start()
         {
             _navigationCalculation = new NavigationCalculationService();
-        
-            PlaceCompassInFrontOfCamera();
-        
+            
             StartCoroutine(_navigationCalculation.CalculateEverySeconds(1f, _arEarthManager, _cesiumGeoreference));
         }
 
@@ -32,12 +28,7 @@ namespace Behaviours
         {
             UpdateCompassRotation();
         }
-
-        private void PlaceCompassInFrontOfCamera()
-        {
-            Vector3 positionInFrontOfCamera = Camera.main.transform.position + Camera.main.transform.forward * distance;
-            transform.position = positionInFrontOfCamera;
-        }
+        
         private void UpdateCompassRotation()
         {
             // Get the target latitude and longitude from the NavigationCalculationService
