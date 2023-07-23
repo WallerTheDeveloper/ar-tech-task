@@ -24,16 +24,16 @@ namespace Services
             return pose;
         }
 
-        public bool HasReachedTarget()
-        {
-            var userLocation = GetUserLocation();
-
-            if (userLocation.Latitude == _locationData.TargetLatitude && userLocation.Longitude == _locationData.TargetLongitude)
-            {
-                return true;
-            }
-
-            return false;
-        }
+        // public bool HasReachedTarget()
+        // {
+        //     var userLocation = GetUserLocation();
+        //
+        //     if (userLocation.Latitude == _locationData.TargetLatitude && userLocation.Longitude == _locationData.TargetLongitude)
+        //     {
+        //         return true;
+        //     }
+        //
+        //     return false;
+        // }
     }
 }

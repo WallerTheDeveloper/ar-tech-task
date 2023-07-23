@@ -1,28 +1,29 @@
-﻿using System;
-using Data;
-using Services;
+﻿using Services;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MarkerController : MonoBehaviour
 {
-    private NavigationCalculationService _navigationCalculationService;
+    [SerializeField] private float _distanceThresholdInKm;
+    [SerializeField] private UnityEvent OnReachedTarget;
+
     private UserLocationService _userLocationService;
-    
-    [SerializeField] private float _approachThresholdInMeters;
-    [SerializeField] private LocationData _locationData;
-    private void Awake()
+    private IDistanceInformant _distanceInformant;
+    private void OnEnable()
     {
-        _navigationCalculationService = new NavigationCalculationService();
+        transform.gameObject.SetActive(false);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        OnReachedTarget?.Invoke();
+    }
+    
     private void Update()
     {
-        ShowMarkerAfterApproaching(_approachThresholdInMeters);
-    }
-
-    private void ShowMarkerAfterApproaching(float meters)
-    {
-        var distance = _navigationCalculationService.CalculateDistance(_userLocationService.GetUserLocation(), _locationData.TargetLatitude, _locationData.TargetLongitude);
-        transform.gameObject.SetActive(distance <= meters);
+        if (_distanceInformant.CurrentDistance <= _distanceThresholdInKm)
+        {
+            transform.gameObject.SetActive(true);
+        }
     }
 }

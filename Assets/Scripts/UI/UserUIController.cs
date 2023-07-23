@@ -1,5 +1,4 @@
-﻿using System;
-using Configuration;
+﻿using Configuration;
 using Data;
 using Google.XR.ARCoreExtensions;
 using Services;
@@ -11,29 +10,39 @@ using UnityEngine.XR.ARSubsystems;
 namespace UI
 {
     [RequireComponent(typeof(LocationServicesConfiguration))]
-    public class UserUIController : MonoBehaviour
+    public class UserUIController : MonoBehaviour, IDistanceInformant
     {
+        
+        public double CurrentDistance { get; private set; }
+
         [SerializeField] private AREarthManager earthManager;
     
         [SerializeField] private ARCoreExtensions arcoreExtensions;
+
+        [SerializeField] private AREarthManager _arEarthManager;
     
         [SerializeField] private TextMeshProUGUI geospatialStatusText;
 
+        [SerializeField] private TextMeshProUGUI _scanPrompt;
+            
         [SerializeField] private LocationData _locationData;
         
-        [SerializeField] private TextMeshProUGUI _scanPrompt;
-        
-        [SerializeField] private AREarthManager _arEarthManager;
-        
+
         private UserLocationService _userLocationService;
         private NavigationCalculationService _navigationCalculation;
-
+        
+        
         private void Start()
         {
             _navigationCalculation = new NavigationCalculationService();
             _userLocationService = new UserLocationService();
             
             _userLocationService.Init(_arEarthManager, _locationData);
+        }
+
+        private void OnEnable()
+        {
+            _scanPrompt.gameObject.SetActive(false);
         }
 
         private void Update()
@@ -75,7 +84,9 @@ namespace UI
 
             var distance = _navigationCalculation.CalculateDistance(pose, _locationData.TargetLatitude,
                 _locationData.TargetLongitude);
-        
+            
+            CurrentDistance = distance;
+            
             if(geospatialStatusText != null)
             {
                 string text =
@@ -96,7 +107,12 @@ namespace UI
                 geospatialStatusText.SetText(text);
             }
             
-            _scanPrompt.gameObject.SetActive(_userLocationService.HasReachedTarget());
+            // _scanPrompt.gameObject.SetActive(_userLocationService.HasReachedTarget());
+        }
+
+        public void ShowScanText()
+        {
+            _scanPrompt.gameObject.SetActive(true);
         }
     }
 }

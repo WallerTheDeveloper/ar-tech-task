@@ -153,6 +153,7 @@ GameObject:
   - component: {fileID: 861698742081353284}
   - component: {fileID: 7925573427174815932}
   - component: {fileID: 4743656261815898263}
+  - component: {fileID: 4341337758896372082}
   m_Layer: 0
   m_Name: AR Camera
   m_TagString: MainCamera
@@ -169,8 +170,8 @@ Transform:
   m_GameObject: {fileID: 5476385985230238266}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9032082252774159486}
@@ -315,6 +316,29 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!136 &4341337758896372082
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5476385985230238266}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &5457901500728154743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -331,17 +355,17 @@ PrefabInstance:
     - target: {fileID: 3955913691824631305, guid: 10a511915ba540e499f6893c403d491b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3424842
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3955913691824631305, guid: 10a511915ba540e499f6893c403d491b,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3424842
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3955913691824631305, guid: 10a511915ba540e499f6893c403d491b,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.3424842
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3955913691824631305, guid: 10a511915ba540e499f6893c403d491b,
         type: 3}
@@ -351,12 +375,12 @@ PrefabInstance:
     - target: {fileID: 3955913691824631305, guid: 10a511915ba540e499f6893c403d491b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.267
+      value: -0.27027
       objectReference: {fileID: 0}
     - target: {fileID: 3955913691824631305, guid: 10a511915ba540e499f6893c403d491b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.0569
+      value: 1.3757
       objectReference: {fileID: 0}
     - target: {fileID: 3955913691824631305, guid: 10a511915ba540e499f6893c403d491b,
         type: 3}
@@ -393,11 +417,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7213140848151073289, guid: 10a511915ba540e499f6893c403d491b,
+        type: 3}
+      propertyPath: _locationData
+      value: 
+      objectReference: {fileID: 11400000, guid: 14fa3f427a08cca44bd8744e7dd1d068,
+        type: 2}
+    - target: {fileID: 7213140848151073289, guid: 10a511915ba540e499f6893c403d491b,
+        type: 3}
+      propertyPath: _compassPrefab
+      value: 
+      objectReference: {fileID: 8795938219529104883}
+    - target: {fileID: 7213140848151073289, guid: 10a511915ba540e499f6893c403d491b,
+        type: 3}
+      propertyPath: _arEarthManager
+      value: 
+      objectReference: {fileID: 3896675540316986195}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10a511915ba540e499f6893c403d491b, type: 3}
+--- !u!1 &8795938219529104883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3580132225144420228, guid: 10a511915ba540e499f6893c403d491b,
+    type: 3}
+  m_PrefabInstance: {fileID: 5457901500728154743}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9032082252774159486 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3955913691824631305, guid: 10a511915ba540e499f6893c403d491b,
