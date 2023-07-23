@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 851bf02e6dcd4c069c693cbbc10dd238, type: 3}
   m_Name: Location Data
   m_EditorClassIdentifier: 
-  TargetLatitude: 52.516374412428426
-  TargetLongitude: 13.470904063153442
+  TargetLatitude: 52.51622680753962
+  TargetLongitude: 13.471625078693922

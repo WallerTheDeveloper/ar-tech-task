@@ -9,7 +9,7 @@ namespace Services
     {
         private AREarthManager _earthManager;
         private LocationData _locationData;
-
+        
         public void Init(AREarthManager earthManager, LocationData locationData)
         {   
             _earthManager = earthManager;
@@ -27,9 +27,8 @@ namespace Services
         public bool HasReachedTarget()
         {
             var userLocation = GetUserLocation();
-            
-            if (Math.Abs(userLocation.Latitude - _locationData.TargetLatitude) < 0.00000001f &&
-                Math.Abs(userLocation.Longitude - _locationData.TargetLongitude) < 0.00000001f)
+
+            if (userLocation.Latitude == _locationData.TargetLatitude && userLocation.Longitude == _locationData.TargetLongitude)
             {
                 return true;
             }

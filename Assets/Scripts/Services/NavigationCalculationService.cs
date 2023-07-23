@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections;
-using CesiumForUnity;
 using Google.XR.ARCoreExtensions;
 using UnityEngine;
-using UnityEngine.XR.ARSubsystems;
 
 namespace Services
 {
@@ -11,11 +9,11 @@ namespace Services
     {
         public IEnumerator CalculateEverySeconds(float seconds, GeospatialPose pose, double targetLatitude, double targetLongitude)
         {
-            while (true)
+            while (true) 
             {
                 CalculateDistance(pose, targetLatitude, targetLongitude);
                 yield return new WaitForSeconds(seconds);
-            }
+            } 
         }
         public double CalculateDistance(GeospatialPose pose, double targetLatitude, double targetLongitude)
         {

@@ -17,7 +17,7 @@ namespace Behaviours
         private NavigationCalculationService _navigationCalculationService;
         private UserLocationService _userLocationService;
     
-        private void Awake()
+        private void Start() // don't change to Awake
         {
             _navigationCalculationService = new NavigationCalculationService();
             
