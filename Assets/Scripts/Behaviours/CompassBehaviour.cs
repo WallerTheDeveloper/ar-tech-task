@@ -1,4 +1,5 @@
 ﻿using CesiumForUnity;
+using Data;
 using Google.XR.ARCoreExtensions;
 using Services;
 using UnityEngine;
@@ -7,21 +8,25 @@ namespace Behaviours
 {
     public class CompassBehaviour : MonoBehaviour
     {
-        [SerializeField] private float distance = 1.5f;
-    
+        [SerializeField] private LocationData _locationData;
+        
         [SerializeField] private GameObject _compassPrefab;
-
-        [SerializeField] private CesiumGeoreference _cesiumGeoreference;
 
         [SerializeField] private AREarthManager _arEarthManager;
 
-        private NavigationCalculationService _navigationCalculation;
+        private NavigationCalculationService _navigationCalculationService;
+        private UserLocationService _userLocationService;
     
-        private void Start()
+        private void Awake()
         {
-            _navigationCalculation = new NavigationCalculationService();
+            _navigationCalculationService = new NavigationCalculationService();
             
-            StartCoroutine(_navigationCalculation.CalculateEverySeconds(1f, _arEarthManager, _cesiumGeoreference));
+            _userLocationService = new UserLocationService();
+            _userLocationService.Init(_arEarthManager, _locationData);
+            
+            StartCoroutine(
+                _navigationCalculationService.CalculateEverySeconds(1f, _userLocationService.GetUserLocation(), _locationData.TargetLatitude, _locationData.TargetLongitude)
+                );
         }
 
         private void Update()
@@ -31,20 +36,15 @@ namespace Behaviours
         
         private void UpdateCompassRotation()
         {
-            // Get the target latitude and longitude from the NavigationCalculationService
-            double targetLatitude = _cesiumGeoreference.latitude;
-            double targetLongitude = _cesiumGeoreference.longitude;
-
-            // Convert target latitude and longitude to Unity's coordinate system
+            double targetLatitude = _locationData.TargetLatitude;
+            double targetLongitude = _locationData.TargetLongitude;
+            
             Vector3 targetPosition = ConvertToUnityCoordinates(targetLatitude, targetLongitude);
 
-            // Calculate the direction from the compass to the target position
             Vector3 direction = (targetPosition - _compassPrefab.transform.position).normalized;
 
-            // Calculate the rotation needed to look at the target position
             Quaternion targetRotation = Quaternion.LookRotation(direction);
 
-            // Apply the rotation to the compass
             _compassPrefab.transform.rotation = targetRotation;
         }
 
@@ -53,17 +53,12 @@ namespace Behaviours
             int sceneHeight = 100;
             int maxLatitude = 90;
 
-            // Calculate the conversion factor for latitude to Unity's Y-coordinate system
             float latitudeToUnityConversionFactor = sceneHeight / (2 * maxLatitude);
 
-            // Convert latitude to Unity's Y-coordinate system
-            float y = (float)(latitude - _cesiumGeoreference.latitude) * latitudeToUnityConversionFactor;
-
-            // Assuming your geospatial API uses WGS84 standard for latitude and longitude.
-            // Unity uses a left-handed coordinate system where Y is up, Z is forward, and X is right.
-            // We don't have a direct conversion factor for longitude, so we will directly use it as Z-coordinate.
-            float z = (float)(longitude - _cesiumGeoreference.longitude);
-
+            float y = (float) (latitude - _locationData.TargetLatitude) * latitudeToUnityConversionFactor;
+            
+            float z = (float) (longitude - _locationData.TargetLongitude);
+            
             return new Vector3(0f, y, z);
         }
     }

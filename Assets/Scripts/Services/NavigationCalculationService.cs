@@ -9,22 +9,17 @@ namespace Services
 {
     public class NavigationCalculationService
     {
-        public IEnumerator CalculateEverySeconds(float seconds, AREarthManager earthManager, CesiumGeoreference cesiumGeoreference)
+        public IEnumerator CalculateEverySeconds(float seconds, GeospatialPose pose, double targetLatitude, double targetLongitude)
         {
             while (true)
             {
-                CalculateDistance(earthManager, cesiumGeoreference);
+                CalculateDistance(pose, targetLatitude, targetLongitude);
                 yield return new WaitForSeconds(seconds);
             }
         }
-        public double CalculateDistance(AREarthManager earthManager, CesiumGeoreference cesiumGeoreference)
+        public double CalculateDistance(GeospatialPose pose, double targetLatitude, double targetLongitude)
         {
-            var pose = earthManager.EarthState == EarthState.Enabled &&
-                       earthManager.EarthTrackingState == TrackingState.Tracking ?
-                earthManager.CameraGeospatialPose : new GeospatialPose();
-            
-            var distance = Haversine(pose.Latitude, pose.Longitude, cesiumGeoreference.latitude, cesiumGeoreference.longitude);
-            
+            var distance = Haversine(pose.Latitude, pose.Longitude, targetLatitude, targetLongitude);
             return distance;
         }
         private double Haversine(double initialLatitude, double initialLongitude, double targetLatitude, double targetLongitude) 

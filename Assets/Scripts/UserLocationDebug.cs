@@ -1,6 +1,6 @@
-﻿using System;
-using CesiumForUnity;
+﻿using Behaviours;
 using Configuration;
+using Data;
 using Google.XR.ARCoreExtensions;
 using Services;
 using TMPro;
@@ -20,9 +20,8 @@ public class UserLocationDebug : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI geospatialStatusText;
 
-    [SerializeField]
-    private CesiumGeoreference _cesiumGeoreference; // for debugging
-
+    [SerializeField] private LocationData _locationData;
+    
     private NavigationCalculationService _navigationCalculation;
     private void Start()
     {
@@ -65,24 +64,42 @@ public class UserLocationDebug : MonoBehaviour
             earthManager.EarthTrackingState == TrackingState.Tracking ?
             earthManager.CameraGeospatialPose : new GeospatialPose();
         var supported = earthManager.IsGeospatialModeSupported(GeospatialMode.Enabled);
-        var distance = _navigationCalculation.CalculateDistance(earthManager, _cesiumGeoreference);
-            
+
+        var distance = _navigationCalculation.CalculateDistance(pose, _locationData.TargetLatitude,
+            _locationData.TargetLongitude);
+        
         if(geospatialStatusText != null)
         {
-            geospatialStatusText.text =
-                $"SessionState: {ARSession.state}\n" +
-                $"LocationServiceStatus: {Input.location.status}\n" +
-                $"FeatureSupported: {supported}\n" +
-                $"EarthState: {earthManager.EarthState}\n" +
-                $"EarthTrackingState: {earthManager.EarthTrackingState}\n" +
-                $"  LAT/LNG: {pose.Latitude:F6}, {pose.Longitude:F6}\n" +
-                $"  HorizontalAcc: {pose.HorizontalAccuracy:F6}\n" +
-                $"  ALT: {pose.Altitude:F2}\n" +
-                $"  VerticalAcc: {pose.VerticalAccuracy:F2}\n" +
-                $"  EunRotation: {pose.EunRotation:F2}\n" +
-                $"  OrientationYawAcc: {pose.OrientationYawAccuracy:F2}\n" +
-                $"  Distance to Target: {distance:F3}"
+            string text =  
+                    $"SessionState: {ARSession.state}\n" +
+                    $"LocationServiceStatus: {Input.location.status}\n" +
+                    $"FeatureSupported: {supported}\n" +
+                    $"EarthState: {earthManager.EarthState}\n" +
+                    $"EarthTrackingState: {earthManager.EarthTrackingState}\n" +
+                    $"  LAT/LNG: {pose.Latitude:F6}, {pose.Longitude:F6}\n" +
+                    $"  HorizontalAcc: {pose.HorizontalAccuracy:F6}\n" +
+                    $"  ALT: {pose.Altitude:F2}\n" +
+                    $"  VerticalAcc: {pose.VerticalAccuracy:F2}\n" +
+                    $"  EunRotation: {pose.EunRotation:F2}\n" +
+                    $"  OrientationYawAcc: {pose.OrientationYawAccuracy:F2}\n" +
+                    $"  Distance to Target: {distance:F3}"
                 ;
+            geospatialStatusText.SetText(text);
+            
+            // geospatialStatusText.text =
+            //     $"SessionState: {ARSession.state}\n" +
+            //     $"LocationServiceStatus: {Input.location.status}\n" +
+            //     $"FeatureSupported: {supported}\n" +
+            //     $"EarthState: {earthManager.EarthState}\n" +
+            //     $"EarthTrackingState: {earthManager.EarthTrackingState}\n" +
+            //     $"  LAT/LNG: {pose.Latitude:F6}, {pose.Longitude:F6}\n" +
+            //     $"  HorizontalAcc: {pose.HorizontalAccuracy:F6}\n" +
+            //     $"  ALT: {pose.Altitude:F2}\n" +
+            //     $"  VerticalAcc: {pose.VerticalAccuracy:F2}\n" +
+            //     $"  EunRotation: {pose.EunRotation:F2}\n" +
+            //     $"  OrientationYawAcc: {pose.OrientationYawAccuracy:F2}\n" +
+            //     $"  Distance to Target: {distance:F3}"
+            //     ;
         }
     }
 }
