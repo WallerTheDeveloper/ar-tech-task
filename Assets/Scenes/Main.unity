@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c89b507a7fbb4155a95caff88f401853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _approachThresholdInMeters: 20
+  _approachThresholdInMeters: 0.04
   _locationData: {fileID: 11400000, guid: 14fa3f427a08cca44bd8744e7dd1d068, type: 2}
 --- !u!114 &710300760 stripped
 MonoBehaviour:
