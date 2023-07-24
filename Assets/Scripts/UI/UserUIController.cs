@@ -114,5 +114,10 @@ namespace UI
         {
             _scanPrompt.gameObject.SetActive(true);
         }
+
+        private void TaskTextShow()
+        {
+            
+        }
     }
 }
