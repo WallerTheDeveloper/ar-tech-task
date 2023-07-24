@@ -31,6 +31,7 @@ public class MarkerController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         OnReachedTarget?.Invoke();
+        print("TRIGGER");
     }
     
     private void Update()

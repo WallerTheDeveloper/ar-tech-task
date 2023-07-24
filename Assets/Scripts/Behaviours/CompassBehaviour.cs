@@ -50,17 +50,36 @@ namespace Behaviours
 
         private Vector3 ConvertToUnityCoordinates(double latitude, double longitude)
         {
-            int sceneHeight = 100;
-            int maxLatitude = 90;
+            int sceneHeight = 100; // Set the height of your Unity scene in Unity units (e.g., meters or feet)
+            int maxLatitude = 90;  // Set the maximum latitude range you want to represent in your scene
 
+            // Calculate the conversion factor for latitude to Unity's Y-coordinate system
             float latitudeToUnityConversionFactor = sceneHeight / (2 * maxLatitude);
 
-            float y = (float) (latitude - _locationData.TargetLatitude) * latitudeToUnityConversionFactor;
-            
-            float z = (float) (longitude - _locationData.TargetLongitude);
-            
-            return new Vector3(0f, y, z);
+            // Convert latitude to Unity's Y-coordinate system
+            float y = (float)(latitude - _locationData.TargetLatitude) * latitudeToUnityConversionFactor;
+
+            // Convert longitude to Unity's X-coordinate system
+            float x = (float)(longitude - _locationData.TargetLongitude);
+
+            // Since we are using a 2D projection on the X-Z plane, set the Z-coordinate to 0
+            float z = 0f;
+
+            return new Vector3(x, y, z);
         }
+        // private Vector3 ConvertToUnityCoordinates(double latitude, double longitude)
+        // {
+        //     int sceneHeight = 100;
+        //     int maxLatitude = 90;
+        //
+        //     float latitudeToUnityConversionFactor = sceneHeight / (2 * maxLatitude);
+        //
+        //     float y = (float) (latitude - _locationData.TargetLatitude) * latitudeToUnityConversionFactor;
+        //     
+        //     float z = (float) (longitude - _locationData.TargetLongitude);
+        //     
+        //     return new Vector3(0f, y, z);
+        // }
     }
 }
 

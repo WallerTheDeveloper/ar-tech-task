@@ -427,7 +427,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -726,6 +726,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5797605953064890555, guid: 7678cf0808c2b2f4caeffee427ec93ed,
+        type: 3}
+      propertyPath: AltType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5797605953064890555, guid: 7678cf0808c2b2f4caeffee427ec93ed,
+        type: 3}
+      propertyPath: _altitudeOffset
+      value: 3.33
+      objectReference: {fileID: 0}
     - target: {fileID: 5848193137880300008, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
       propertyPath: m_Enabled
@@ -749,17 +759,17 @@ PrefabInstance:
     - target: {fileID: 8048526534569016384, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.4
+      value: 13.67
       objectReference: {fileID: 0}
     - target: {fileID: 8048526534569016384, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.37
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8048526534569016384, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.48
+      value: -10.78
       objectReference: {fileID: 0}
     - target: {fileID: 8048526534569016384, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
