@@ -682,6 +682,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 436495107580660115, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
         type: 3}
       propertyPath: _scanPrompt
