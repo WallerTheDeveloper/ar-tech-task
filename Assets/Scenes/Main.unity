@@ -217,7 +217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &339614327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -945,6 +945,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AR Session Origin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6998583529259351342, guid: e4680a1bebac55440b67201788a950b7,
+        type: 3}
+      propertyPath: m_TrackedImagePrefab
+      value: 
+      objectReference: {fileID: 505458035844048752, guid: b1496b309580b9b4d822b1130671281c,
+        type: 3}
+    - target: {fileID: 6998583529259351342, guid: e4680a1bebac55440b67201788a950b7,
+        type: 3}
+      propertyPath: m_MaxNumberOfMovingImages
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7191528527008183858, guid: e4680a1bebac55440b67201788a950b7,
         type: 3}
