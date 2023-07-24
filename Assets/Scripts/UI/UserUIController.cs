@@ -10,10 +10,9 @@ using UnityEngine.XR.ARSubsystems;
 namespace UI
 {
     [RequireComponent(typeof(LocationServicesConfiguration))]
-    public class UserUIController : MonoBehaviour, IDistanceInformant
+    public class UserUIController : MonoBehaviour
     {
-        
-        public double CurrentDistance { get; private set; }
+        // public double CurrentDistance { get; private set; }
 
         [SerializeField] private AREarthManager earthManager;
     
@@ -26,8 +25,9 @@ namespace UI
         [SerializeField] private TextMeshProUGUI _scanPrompt;
             
         [SerializeField] private LocationData _locationData;
-        
 
+        [SerializeField] private LocationDataChannel _locationChannel;
+        
         private UserLocationService _userLocationService;
         private NavigationCalculationService _navigationCalculation;
         
@@ -85,7 +85,7 @@ namespace UI
             var distance = _navigationCalculation.CalculateDistance(pose, _locationData.TargetLatitude,
                 _locationData.TargetLongitude);
             
-            CurrentDistance = distance;
+            _locationChannel.CurrentDistance = distance;
             
             if(geospatialStatusText != null)
             {
