@@ -56,30 +56,22 @@ namespace Behaviours
             // Calculate the conversion factor for latitude to Unity's Y-coordinate system
             float latitudeToUnityConversionFactor = sceneHeight / (2 * maxLatitude);
 
+            
+            // Get the user's current latitude and longitude
+            double userLatitude = _userLocationService.GetUserLocation().Latitude;
+            double userLongitude = _userLocationService.GetUserLocation().Longitude;
+            
             // Convert latitude to Unity's Y-coordinate system
-            float y = (float)(latitude - _locationData.TargetLatitude) * latitudeToUnityConversionFactor;
+            float y = (float)(latitude - userLatitude) * latitudeToUnityConversionFactor;
 
             // Convert longitude to Unity's X-coordinate system
-            float x = (float)(longitude - _locationData.TargetLongitude);
+            float x = (float)(longitude - userLongitude);
 
             // Since we are using a 2D projection on the X-Z plane, set the Z-coordinate to 0
             float z = 0f;
 
             return new Vector3(x, y, z);
         }
-        // private Vector3 ConvertToUnityCoordinates(double latitude, double longitude)
-        // {
-        //     int sceneHeight = 100;
-        //     int maxLatitude = 90;
-        //
-        //     float latitudeToUnityConversionFactor = sceneHeight / (2 * maxLatitude);
-        //
-        //     float y = (float) (latitude - _locationData.TargetLatitude) * latitudeToUnityConversionFactor;
-        //     
-        //     float z = (float) (longitude - _locationData.TargetLongitude);
-        //     
-        //     return new Vector3(0f, y, z);
-        // }
     }
 }
 
