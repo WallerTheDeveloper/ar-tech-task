@@ -22,7 +22,7 @@ namespace Behaviours
             _navigationCalculationService = new NavigationCalculationService();
             
             _userLocationService = new UserLocationService();
-            _userLocationService.Init(_arEarthManager, _locationData);
+            _userLocationService.Init(_arEarthManager);
             
             StartCoroutine(
                 _navigationCalculationService.CalculateEverySeconds(1f, _userLocationService.GetUserLocation(), _locationData.TargetLatitude, _locationData.TargetLongitude)
@@ -38,14 +38,14 @@ namespace Behaviours
         {
             double targetLatitude = _locationData.TargetLatitude;
             double targetLongitude = _locationData.TargetLongitude;
-            
+
             Vector3 targetPosition = ConvertToUnityCoordinates(targetLatitude, targetLongitude);
 
             Vector3 direction = (targetPosition - _compassPrefab.transform.position).normalized;
 
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            Quaternion targetRotation = Quaternion.LookRotation(direction); // Calculate the rotation needed to look at the target position
 
-            _compassPrefab.transform.rotation = targetRotation;
+            _compassPrefab.transform.rotation = targetRotation; // Apply the rotation to the compass
         }
 
         private Vector3 ConvertToUnityCoordinates(double latitude, double longitude)
@@ -55,7 +55,6 @@ namespace Behaviours
 
             // Calculate the conversion factor for latitude to Unity's Y-coordinate system
             float latitudeToUnityConversionFactor = sceneHeight / (2 * maxLatitude);
-
             
             // Get the user's current latitude and longitude
             double userLatitude = _userLocationService.GetUserLocation().Latitude;

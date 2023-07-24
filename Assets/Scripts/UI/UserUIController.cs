@@ -37,7 +37,7 @@ namespace UI
             _navigationCalculation = new NavigationCalculationService();
             _userLocationService = new UserLocationService();
             
-            _userLocationService.Init(_arEarthManager, _locationData);
+            _userLocationService.Init(_arEarthManager);
         }
 
         private void OnEnable()

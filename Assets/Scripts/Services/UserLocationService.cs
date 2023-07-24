@@ -8,12 +8,10 @@ namespace Services
     public class UserLocationService
     {
         private AREarthManager _earthManager;
-        private LocationData _locationData;
         
-        public void Init(AREarthManager earthManager, LocationData locationData)
+        public void Init(AREarthManager earthManager)
         {   
             _earthManager = earthManager;
-            _locationData = locationData;
         }
         public GeospatialPose GetUserLocation()
         {
@@ -23,17 +21,5 @@ namespace Services
 
             return pose;
         }
-
-        // public bool HasReachedTarget()
-        // {
-        //     var userLocation = GetUserLocation();
-        //
-        //     if (userLocation.Latitude == _locationData.TargetLatitude && userLocation.Longitude == _locationData.TargetLongitude)
-        //     {
-        //         return true;
-        //     }
-        //
-        //     return false;
-        // }
     }
 }

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Linq;
-using Data;
+﻿using Data;
 using Services;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 public class MarkerController : MonoBehaviour
 {
@@ -19,6 +16,7 @@ public class MarkerController : MonoBehaviour
     private void OnEnable()
     {
         ShowObject(false);
+
     }
 
     private void ShowObject(bool enabledValue)
@@ -28,10 +26,11 @@ public class MarkerController : MonoBehaviour
             childRenderer.enabled = enabledValue;
         }
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter (Collider col)
     {
-        OnReachedTarget?.Invoke();
         print("TRIGGER");
+
+        OnReachedTarget?.Invoke();
     }
     
     private void Update()
