@@ -408,8 +408,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 52.4498, y: 427.6926}
-  m_SizeDelta: {x: 467.0767, y: 67.4117}
+  m_AnchoredPosition: {x: 52.4498, y: 431.51428}
+  m_SizeDelta: {x: 467.0767, y: 59.7683}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &844470052
 MonoBehaviour:
@@ -431,7 +431,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Move to compass direction
+  m_text: testestets
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -465,7 +465,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -1.0688324, z: 0.52180535, w: 0.33920276}
+  m_margin: {x: 0, y: -1.0688324, z: 0.52180535, w: 0.33911806}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -871,7 +871,7 @@ PrefabInstance:
     - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
         type: 3}
       propertyPath: _textsToDisplay.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
         type: 3}
@@ -892,6 +892,11 @@ PrefabInstance:
         type: 3}
       propertyPath: '_textsToDisplay.Array.data[3]'
       value: Stand On It and Scan Marker.
+      objectReference: {fileID: 0}
+    - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: '_textsToDisplay.Array.data[4]'
+      value: Use Compass to navigate
       objectReference: {fileID: 0}
     - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
         type: 3}

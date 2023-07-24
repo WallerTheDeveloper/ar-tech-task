@@ -63,7 +63,11 @@ namespace UI
             _scanPrompt.gameObject.SetActive(false);
         }
         
-         private void Update()
+        public void ShowScanText()
+        {
+            _scanPrompt.gameObject.SetActive(true);
+        }
+        private void Update()
          {
              if (ARSession.state != ARSessionState.SessionInitializing &&
                  ARSession.state != ARSessionState.SessionTracking)
@@ -121,12 +125,7 @@ namespace UI
              }
          }
 
-        public void ShowScanText()
-        {
-            _scanPrompt.gameObject.SetActive(true);
-        }
-        
-        private IEnumerator FadeInAndOutEffectFor(int seconds, TextMeshProUGUI textToFade, string text)
+         private IEnumerator FadeInAndOutEffectFor(int seconds, TextMeshProUGUI textToFade, string text)
         {
             textToFade.SetText(text);
             for (float i = 0; i <= seconds; i += Time.deltaTime)
