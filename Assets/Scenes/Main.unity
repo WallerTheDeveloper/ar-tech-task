@@ -233,10 +233,10 @@ MonoBehaviour:
   _originAuthority: 0
   _latitude: 52.516312
   _longitude: 13.471192
-  _height: 73.98
-  _ecefX: 3782561.373486651
-  _ecefY: 906101.4139083707
-  _ecefZ: 5038028.078365319
+  _height: 81
+  _ecefX: 3782565.527873545
+  _ecefY: 906102.4090794907
+  _ecefZ: 5038033.648922201
   _scale: 1
 --- !u!114 &339614328
 MonoBehaviour:
@@ -671,10 +671,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Specified Marker
       objectReference: {fileID: 0}
+    - target: {fileID: 2352608736275479299, guid: 7678cf0808c2b2f4caeffee427ec93ed,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5797605953064890555, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
       propertyPath: _altitude
-      value: 73.98
+      value: 81.63
       objectReference: {fileID: 0}
     - target: {fileID: 5797605953064890555, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
