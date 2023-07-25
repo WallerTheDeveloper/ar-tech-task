@@ -7,7 +7,6 @@ using Services;
 using TMPro;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
-using UnityEngine.XR.ARSubsystems;
 
 namespace UI
 {
@@ -42,9 +41,16 @@ namespace UI
         
         private Queue<string> _instructionTextContainer = new();
 
-        public void ShowScanText()
+        public void ShowScanText(bool show)
         {
-            _scanPrompt.gameObject.SetActive(true);
+            if (show)
+            {
+                _scanPrompt.gameObject.SetActive(true);
+            }
+            else
+            {
+                _scanPrompt.gameObject.SetActive(false);
+            }
         }
         private void Start()
         {

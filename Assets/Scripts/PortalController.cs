@@ -44,26 +44,6 @@ public class PortalController : MonoBehaviour
             InitPortal();
             
         }
-
-        // foreach (var trackedImage in eventArgs.added)
-        // {
-        //     if (trackedImage.tag == "Portal" && trackedImage.trackingState == UnityEngine.XR.ARSubsystems.TrackingState.Tracking)
-        //     {
-        //         float distanceToMarker = Vector3.Distance(Camera.main.transform.position, trackedImage.transform.position);
-        //         
-        //         portal.localScale = initialScale * distanceToMarker;
-        //         
-        //         portal.position = trackedImage.transform.position;
-        //         
-        //         portal.rotation = Quaternion.Euler(0f, 0f, 0f);
-        //         Debug.Log("Image position: " + trackedImage.transform.position);
-        //         Debug.Log("Image rotation: " + trackedImage.transform.rotation);
-        //         print("Position: " + portal.position + " rotation: " + portal.rotation);
-        //
-        //         // portal.rotation = trackedImage.transform.rotation;
-        //         
-        //     }
-        // }
         foreach (ARTrackedImage trackedImage in eventArgs.updated)
         {
             if (trackedImage.tag == "Portal" && trackedImage.trackingState == UnityEngine.XR.ARSubsystems.TrackingState.Tracking)
