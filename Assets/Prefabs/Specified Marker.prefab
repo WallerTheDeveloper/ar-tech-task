@@ -188,9 +188,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Marker
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5646106148395956012, guid: 607e9e6ecfd5bd64c8e12d36d7a01a98, type: 3}
-    - {fileID: 1553792296231213845, guid: 607e9e6ecfd5bd64c8e12d36d7a01a98, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -276,11 +274,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: 4x4Area
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2219008358070117877, guid: a6df2f597ceb7de46ac1f19e5064d075, type: 3}
-    - {fileID: 4126834622849023719, guid: a6df2f597ceb7de46ac1f19e5064d075, type: 3}
-    - {fileID: 564403836920613665, guid: a6df2f597ceb7de46ac1f19e5064d075, type: 3}
-    - {fileID: 6486759238403888560, guid: a6df2f597ceb7de46ac1f19e5064d075, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
