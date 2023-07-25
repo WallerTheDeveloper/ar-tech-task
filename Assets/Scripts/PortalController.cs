@@ -53,7 +53,8 @@ public class PortalController : MonoBehaviour
                 portal.localScale = initialScale * distanceToMarker;
                 
                 portal.position = trackedImage.transform.position;
-                
+
+                // portal.rotation = trackedImage.transform.rotation * Quaternion.Euler(123f, 0f, 0f);
                 portal.rotation = Quaternion.Euler(0f, 0f, 0f);
                 Debug.Log("Image position: " + trackedImage.transform.position + "Image rotation: " + trackedImage.transform.rotation);
                 print("Position: " + portal.position + " rotation: " + portal.rotation);
