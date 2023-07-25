@@ -28,10 +28,6 @@ namespace Behaviours
             
             _userLocationService = new UserLocationService();
             _userLocationService.Init(_arEarthManager);
-            
-            // StartCoroutine(
-            //     _navigationCalculationService.CalculateEverySeconds(1f, _userLocationService.GetUserLocation(), _locationData.TargetLatitude, _locationData.TargetLongitude)
-            //     );
         }
 
         private void Update()
