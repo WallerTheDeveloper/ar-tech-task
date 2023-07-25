@@ -54,19 +54,10 @@ public class PortalController : MonoBehaviour
                 
                 portal.position = trackedImage.transform.position;
 
-                portal.rotation = trackedImage.transform.rotation * Quaternion.Euler(270f, 0f, 0f);
-                // portal.rotation = Quaternion.Euler(0f, 0f, 0f);
+                portal.rotation = trackedImage.transform.rotation * Quaternion.Euler(-270f, 0f, 0f);
+                
                 Debug.Log("Image position: " + trackedImage.transform.position + "Image rotation: " + trackedImage.transform.rotation);
                 print("Position: " + portal.position + " rotation: " + portal.rotation);
-
-                // portal.rotation = trackedImage.transform.rotation;
-                // float distanceToMarker = Vector3.Distance(Camera.main.transform.position, trackedImage.transform.position);
-                //
-                // portal.localScale = initialScale * distanceToMarker;
-                // portal.position = trackedImage.transform.position;
-                // portal.rotation = trackedImage.transform.rotation;
-                //
-                // print("Position: " + portal.position + " rotation: " + portal.rotation);
             }
         }
     }
