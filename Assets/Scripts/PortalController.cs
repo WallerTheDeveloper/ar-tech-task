@@ -5,9 +5,9 @@ using UnityEngine.XR.ARFoundation;
 
 public class PortalController : MonoBehaviour
 {
-    
-    public Transform portal;
     public ARTrackedImageManager trackedImageManager;
+    
+    private Transform portal;
     private Vector3 initialScale;
     private bool portalFound;
 
@@ -32,7 +32,11 @@ public class PortalController : MonoBehaviour
                     portal = trackedImage.transform;
                     initialScale = portal.localScale;
                     portalFound = true;
-                    break; // Found the portal, no need to continue the loop
+                    
+                    Vector3 eulerRotationOffset = new Vector3(270f, 0f, 0f);
+                    portal.Rotate(eulerRotationOffset, Space.Self);
+                    
+                    break;
                 }
             }
         }
@@ -56,35 +60,4 @@ public class PortalController : MonoBehaviour
             }
         }
     }
-    // public Transform portal;
-    // public ARTrackedImageManager trackedImageManager;
-    // private Vector3 initialScale;
-    //
-    // private void OnEnable()
-    // {
-    //     trackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
-    // }
-    //
-    // private void InitPortal()
-    // {
-    //     foreach (ARTrackedImage trackedImage in trackedImageManager.trackables)
-    //     {
-    //         if (trackedImage.tag == "Portal")
-    //         {
-    //             portal = trackedImage.transform;
-    //             break; // Found the portal, no need to continue the loop
-    //         }
-    //     }
-    //     initialScale = portal.transform.localScale;
-    // }
-    // void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
-    // {
-    //     InitPortal();
-    //     
-    //     foreach (ARTrackedImage trackedImage in trackedImageManager.trackables)
-    //     {
-    //         float distanceToMarker = Vector3.Distance(Camera.main.transform.position, trackedImage.transform.position);
-    //         portal.transform.localScale = initialScale * distanceToMarker;   
-    //     }
-    // }
 }
