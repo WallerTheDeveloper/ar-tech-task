@@ -94,16 +94,23 @@ namespace UI
                      break;
              }
          
-             var pose = earthManager.EarthState == EarthState.Enabled &&
-                        earthManager.EarthTrackingState == TrackingState.Tracking ?
-                 earthManager.CameraGeospatialPose : new GeospatialPose();
+             // var pose = earthManager.EarthState == EarthState.Enabled &&
+             //            earthManager.EarthTrackingState == TrackingState.Tracking ?
+             //     earthManager.CameraGeospatialPose : new GeospatialPose();
+             var pose = _userLocationService.GetUserLocation();
+             
              var supported = earthManager.IsGeospatialModeSupported(GeospatialMode.Enabled);
          
              var distance = _navigationCalculation.CalculateDistance(pose, _locationData.TargetLatitude,
                  _locationData.TargetLongitude);
              
              _locationChannel.CurrentDistance = distance;
-             
+#if UNITY_EDITOR
+             pose.Latitude = 52.5162994656517;
+             pose.Longitude = 13.4712489301791;
+             distance = _navigationCalculation.CalculateDistance(pose, _locationData.TargetLatitude,
+                 _locationData.TargetLongitude);
+#endif
              if(geospatialStatusText != null)
              {
                  string text =

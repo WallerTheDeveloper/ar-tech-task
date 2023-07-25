@@ -7,16 +7,20 @@ namespace Services
 {
     public class NavigationCalculationService
     {
-        public IEnumerator CalculateEverySeconds(float seconds, GeospatialPose pose, double targetLatitude, double targetLongitude)
-        {
-            while (true) 
-            {
-                CalculateDistance(pose, targetLatitude, targetLongitude);
-                yield return new WaitForSeconds(seconds);
-            } 
-        }
+        // public IEnumerator CalculateEverySeconds(float seconds, GeospatialPose pose, double targetLatitude, double targetLongitude)
+        // {
+        //     while (true) 
+        //     {
+        //         CalculateDistance(pose, targetLatitude, targetLongitude);
+        //         yield return new WaitForSeconds(seconds);
+        //     } 
+        // }
         public double CalculateDistance(GeospatialPose pose, double targetLatitude, double targetLongitude)
         {
+// #if UNITY_EDITOR
+//             var distance1 = Haversine(52.5162994656517, 13.4712489301791, targetLatitude, targetLongitude);
+//             return distance1;
+// #endif
             var distance = Haversine(pose.Latitude, pose.Longitude, targetLatitude, targetLongitude);
             return distance;
         }

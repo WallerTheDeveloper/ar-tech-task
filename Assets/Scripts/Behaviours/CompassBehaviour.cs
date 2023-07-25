@@ -29,40 +29,47 @@ namespace Behaviours
             _userLocationService = new UserLocationService();
             _userLocationService.Init(_arEarthManager);
             
-            StartCoroutine(
-                _navigationCalculationService.CalculateEverySeconds(1f, _userLocationService.GetUserLocation(), _locationData.TargetLatitude, _locationData.TargetLongitude)
-                );
+            // StartCoroutine(
+            //     _navigationCalculationService.CalculateEverySeconds(1f, _userLocationService.GetUserLocation(), _locationData.TargetLatitude, _locationData.TargetLongitude)
+            //     );
         }
 
         private void Update()
         {
+            _navigationCalculationService.CalculateDistance(_userLocationService.GetUserLocation(),
+                _locationData.TargetLatitude, _locationData.TargetLongitude);
             UpdateCompassRotation();
         }
 
-        private Vector3 dir;
         private void UpdateCompassRotation()
         {
             double targetLatitude = _locationData.TargetLatitude;
             double targetLongitude = _locationData.TargetLongitude;
 
-            // Vector3 targetPosition = ConvertToUnityCoordinates(targetLatitude, targetLongitude);
             Vector3 targetPosition = ConvertGPStoUCS(targetLatitude, targetLongitude);
-
+            
             Vector3 direction = (targetPosition - _compassPrefab.transform.position).normalized;
             Quaternion targetRotation = Quaternion.LookRotation(direction); // Calculate the rotation needed to look at the target position
-
+            
             _compassPrefab.transform.rotation = targetRotation; // Apply the rotation to the compass
         }
 
         private Vector3 ConvertGPStoUCS(double latitude, double longitude)
         {
+
             var userLatitude = _userLocationService.GetUserLocation().Latitude;
             var userLongitude = _userLocationService.GetUserLocation().Longitude;
+            
             FindMetersPerLat(_userLocationService.GetUserLocation().Latitude);
+  
+#if UNITY_EDITOR
+            userLatitude = 52.5162994656517;
+            userLongitude = 13.4712489301791;
+#endif
             
             double zPosition  = metersPerLat * (latitude - userLatitude); //Calc current lat
             double xPosition  = metersPerLon * (longitude- userLongitude); //Calc current lon
-            return new Vector3((float)zPosition, 0, (float)xPosition);
+            return new Vector3((float)xPosition, 0, (float)zPosition);
         }
         private void FindMetersPerLat(double lat) // Compute lengths of degrees
         {
@@ -80,30 +87,6 @@ namespace Behaviours
             metersPerLat = m1 + (m2 * Mathf.Cos(2 * (float)lat)) + (m3 * Mathf.Cos(4 * (float)lat)) + (m4 * Mathf.Cos(6 * (float)lat));
             metersPerLon = (p1 * Mathf.Cos((float)lat)) + (p2 * Mathf.Cos(3 * (float)lat)) + (p3 * Mathf.Cos(5 * (float)lat));	   
         }
-        
-        // private Vector3 ConvertToUnityCoordinates(double latitude, double longitude)
-        // {
-        //     int sceneHeight = 100; // Set the height of your Unity scene in Unity units (e.g., meters or feet)
-        //     int maxLatitude = 90;  // Set the maximum latitude range you want to represent in your scene
-        //
-        //     // Calculate the conversion factor for latitude to Unity's Y-coordinate system
-        //     float latitudeToUnityConversionFactor = sceneHeight / (2 * maxLatitude);
-        //     
-        //     // Get the user's current latitude and longitude
-        //     double userLatitude = _userLocationService.GetUserLocation().Latitude;
-        //     double userLongitude = _userLocationService.GetUserLocation().Longitude;
-        //     
-        //     // Convert latitude to Unity's Y-coordinate system
-        //     float y = (float)(latitude - userLatitude) * latitudeToUnityConversionFactor;
-        //     
-        //     // Convert longitude to Unity's X-coordinate system
-        //     float x = (float)(longitude - userLongitude);
-        //     
-        //     // Since we are using a 2D projection on the X-Z plane, set the Z-coordinate to 0
-        //     float z = 0f;
-        //     
-        //     return new Vector3(x, y, z);
-        // }
     }
 }
 
