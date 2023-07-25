@@ -33,39 +33,30 @@ namespace UI
         [SerializeField] private int _fadeEffectDuration;
         
         [SerializeField] private string[] _textsToDisplay;
-        
+
         private IEnumerator _currentFade;
+        
         private UserLocationService _userLocationService;
         private NavigationCalculationService _navigationCalculation;
+        private UIFadingEffectService _fadingEffectService;
         
-        private Queue<string> _userInstructions = new Queue<string>();
-        private List<Coroutine> _fadeCoroutines;
-        
-        private void Start()
-        {
-            _fadeCoroutines = new List<Coroutine>();
-            _userInstructions = new Queue<string>();
-            
-            _navigationCalculation = new NavigationCalculationService();
-            _userLocationService = new UserLocationService();
+        private Queue<string> _instructionTextContainer = new();
 
-            _userLocationService.Init(_arEarthManager);
-            
-            foreach (string text in _textsToDisplay)
-            {
-                _userInstructions.Enqueue(text);
-            }
-            ShowNextText();
-        }
-        
-        private void OnEnable()
-        {
-            _scanPrompt.gameObject.SetActive(false);
-        }
-        
         public void ShowScanText()
         {
             _scanPrompt.gameObject.SetActive(true);
+        }
+        private void Start()
+        {
+            _instructionTextContainer = new Queue<string>();
+            
+            InitServices();
+
+            _fadingEffectService.AddTextToQueue();
+        }
+        private void OnEnable()
+        {
+            _scanPrompt.gameObject.SetActive(false);
         }
         private void Update()
          {
@@ -93,10 +84,7 @@ namespace UI
                      }
                      break;
              }
-         
-             // var pose = earthManager.EarthState == EarthState.Enabled &&
-             //            earthManager.EarthTrackingState == TrackingState.Tracking ?
-             //     earthManager.CameraGeospatialPose : new GeospatialPose();
+             
              var pose = _userLocationService.GetUserLocation();
              
              var supported = earthManager.IsGeospatialModeSupported(GeospatialMode.Enabled);
@@ -105,12 +93,12 @@ namespace UI
                  _locationData.TargetLongitude);
              
              _locationChannel.CurrentDistance = distance;
-#if UNITY_EDITOR
+    #if UNITY_EDITOR
              pose.Latitude = 52.5162994656517;
              pose.Longitude = 13.4712489301791;
              distance = _navigationCalculation.CalculateDistance(pose, _locationData.TargetLatitude,
                  _locationData.TargetLongitude);
-#endif
+    #endif
              if(geospatialStatusText != null)
              {
                  string text =
@@ -126,45 +114,18 @@ namespace UI
                                $"  VerticalAcc: {pose.VerticalAccuracy:F2}\n" +
                                $"  EunRotation: {pose.EunRotation:F2}\n" +
                                $"  OrientationYawAcc: {pose.OrientationYawAccuracy:F2}\n" +
-                               $"  Distance to Target: {distance:F3}"
+                               $"  Distance to Target: {distance:F3} km"
                      ;
                  geospatialStatusText.SetText(text);
              }
          }
-
-         private IEnumerator FadeInAndOutEffectFor(int seconds, TextMeshProUGUI textToFade, string text)
+        private void InitServices()
         {
-            textToFade.SetText(text);
-            for (float i = 0; i <= seconds; i += Time.deltaTime)
-            {
-                textToFade.color = new Color(1, 1, 1, i);
-                yield return null;
-            }
-            for (float i = seconds; i >= 0; i -= Time.deltaTime)
-            {
-                textToFade.color = new Color(1, 1, 1, i);
-                yield return null;
-            }
-            ShowNextText();
-        }
+            _navigationCalculation = new NavigationCalculationService();
+            _userLocationService = new UserLocationService();
+            _fadingEffectService = new UIFadingEffectService(this, _instructionTextContainer, _textsToDisplay, _fadeEffectDuration, _userMissionText);
 
-        private void ShowNextText()
-        {
-            if (_userInstructions.Count > 0)
-            {
-                string nextText = _userInstructions.Dequeue();
-                Coroutine currentFade =
-                    StartCoroutine(FadeInAndOutEffectFor(_fadeEffectDuration, _userMissionText, nextText));
-                _fadeCoroutines.Add(currentFade);
-            }
-            else
-            {
-                foreach (Coroutine fadeCoroutine in _fadeCoroutines)
-                {
-                    StopCoroutine(fadeCoroutine);
-                }
-                print("All stopped");
-            }
+            _userLocationService.Init(_arEarthManager);
         }
     }
 }

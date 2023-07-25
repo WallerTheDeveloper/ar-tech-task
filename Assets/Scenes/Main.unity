@@ -217,7 +217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &339614327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -431,7 +431,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: testestets
+  m_text: Mock Text - User Mission
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -440,8 +440,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278976256
+  m_fontColor: {r: 0, g: 1, b: 0.042131662, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -508,6 +508,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844470050}
   m_CullTransparentMesh: 1
+--- !u!1 &908029309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 436495107580660115, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+    type: 3}
+  m_PrefabInstance: {fileID: 384942292988003351}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1635927049
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,12 +570,26 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 384942292988003351}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 908029309}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1677875056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908029309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98508cc93aa5464ca3632db02ca658b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colorTransitionDuration: 0.5
+  _colorChangeInterval: 1
 --- !u!1001 &2010459385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -842,6 +862,77 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5639348201465233906, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_text
+      value: SCAN MARKER
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639348201465233906, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639348201465233906, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_margin.w
+      value: -4.6619225
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639348201465233906, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_margin.z
+      value: 0.3076324
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639348201465233906, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 5639348201465233906, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639348201465233906, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639348201465233906, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.46989954
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639348201465233906, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639348201465233906, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_isRightToLeft
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639348201465233906, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+    - target: {fileID: 5639348201465233906, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278255480
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639348201465233906, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639348201465233906, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
         type: 3}
       propertyPath: _scanPrompt
@@ -890,28 +981,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
         type: 3}
+      propertyPath: _userInstructionsTextColor.b
+      value: 0.64627093
+      objectReference: {fileID: 0}
+    - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: _userInstructionsTextColor.g
+      value: 0.6808705
+      objectReference: {fileID: 0}
+    - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: _userInstructionsTextColor.r
+      value: 0.9716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
       propertyPath: '_textsToDisplay.Array.data[0]'
       value: Welcome to Tech Task App
       objectReference: {fileID: 0}
     - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
         type: 3}
       propertyPath: '_textsToDisplay.Array.data[1]'
-      value: 'Your mission: Reach Destination in Berlin and Scan Marker'
+      value: Your mission is to reach destination in Berlin and scan marker
       objectReference: {fileID: 0}
     - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
         type: 3}
       propertyPath: '_textsToDisplay.Array.data[2]'
-      value: By Reaching Point, you will see area 4x4.
+      value: By reaching point, you will see area 4x4
       objectReference: {fileID: 0}
     - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
         type: 3}
       propertyPath: '_textsToDisplay.Array.data[3]'
-      value: Stand On It and Scan Marker.
+      value: Stand on it and scan marker
       objectReference: {fileID: 0}
     - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
         type: 3}
       propertyPath: '_textsToDisplay.Array.data[4]'
-      value: Use Compass to navigate
+      value: Use compass to navigate
       objectReference: {fileID: 0}
     - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
         type: 3}
@@ -928,10 +1034,50 @@ PrefabInstance:
       propertyPath: OnReachedMinimalDistance.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6182751434153348109, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 461.4939
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182751434153348109, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 66.3165
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182751434153348109, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 349.0573
+      objectReference: {fileID: 0}
+    - target: {fileID: 6182751434153348109, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 138.8417
+      objectReference: {fileID: 0}
     - target: {fileID: 6333663452717391819, guid: 1ae8ad25ce0c0bc40b4c050875008128,
         type: 3}
       propertyPath: m_text
-      value: testestest
+      value: Mock Text - Debug Status
+      objectReference: {fileID: 0}
+    - target: {fileID: 6333663452717391819, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6333663452717391819, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.04082808
+      objectReference: {fileID: 0}
+    - target: {fileID: 6333663452717391819, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6333663452717391819, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278192895
       objectReference: {fileID: 0}
     - target: {fileID: 7491891348428846225, guid: 1ae8ad25ce0c0bc40b4c050875008128,
         type: 3}
@@ -946,7 +1092,11 @@ PrefabInstance:
         type: 3}
       insertIndex: 1
       addedObject: {fileID: 844470051}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 436495107580660115, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1677875056}
   m_SourcePrefab: {fileID: 100100000, guid: 1ae8ad25ce0c0bc40b4c050875008128, type: 3}
 --- !u!1001 &1424700185787171874
 PrefabInstance:
