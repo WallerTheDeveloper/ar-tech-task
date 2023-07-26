@@ -13,9 +13,9 @@ namespace Behaviours
 
         [SerializeField] private AREarthManager _arEarthManager;
 
-        private GpsConversionService _conversionService;
-        private NavigationCalculationService _navigationCalculationService;
-        private UserLocationService _userLocationService;
+        private IConververtor _conversionService;
+        private INavigationCalculator _navigationCalculationService;
+        private ILocationService _userLocationService;
     
         private void Start() // don't change to Awake
         {
@@ -26,8 +26,7 @@ namespace Behaviours
         {
             _navigationCalculationService = new NavigationCalculationService();
 
-            _userLocationService = new UserLocationService();
-            _userLocationService.Init(_arEarthManager);
+            _userLocationService = new UserLocationService(_arEarthManager);
 
             _conversionService = new GpsConversionService(_userLocationService);
         }
@@ -44,20 +43,9 @@ namespace Behaviours
             double targetLatitude = _locationData.TargetLatitude;
             double targetLongitude = _locationData.TargetLongitude;
 
-            // Vector3 compassCoordinates = _conversionService.ConvertUCStoGPS(_compassPrefab.transform.position);
-            // compassCoordinates = _conversionService.ConvertGPStoUCS(compassCoordinates.x, compassCoordinates.z);
             Vector3 targetPosition = _conversionService.ConvertGPStoUCS(targetLatitude, targetLongitude);
 
-            print("Compass position: " + _compassPrefab.transform.position);
-            // _compassPrefab.transform.position = compassCoordinates;
             _compassPrefab.transform.LookAt(targetPosition);
-
-            
-            // Vector3 direction = (targetPosition - _compassPrefab.transform.position).normalized;
-            
-            // Quaternion targetRotation = Quaternion.LookRotation(direction); // Calculate the rotation needed to look at the target position
-            
-            // _compassPrefab.transform.rotation = targetRotation; // Apply the rotation to the compass
         }
     }
 }

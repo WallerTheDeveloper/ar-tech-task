@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections;
 using Google.XR.ARCoreExtensions;
-using UnityEngine;
 
 namespace Services
 {
-    public class NavigationCalculationService
+    public class NavigationCalculationService : INavigationCalculator
     {
         public double CalculateDistance(GeospatialPose pose, double targetLatitude, double targetLongitude)
         {
@@ -27,8 +25,7 @@ namespace Services
             
             return earthRadius * c;
         }
-
-        private static double ConvertToRadians(double angle) 
+        private double ConvertToRadians(double angle) 
         {
             return Math.PI * angle / 180.0;
         }

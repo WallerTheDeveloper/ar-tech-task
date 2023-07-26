@@ -2,13 +2,13 @@
 
 namespace Services
 {
-    public class GpsConversionService
+    public class GpsConversionService : IConververtor
     {
-        private readonly UserLocationService _userLocationService;
+        private readonly ILocationService _userLocationService;
         private float metersPerLat;
         private float metersPerLon;
 
-        public GpsConversionService(UserLocationService userLocationService)
+        public GpsConversionService(ILocationService userLocationService)
         {
             _userLocationService = userLocationService;
         }
@@ -18,23 +18,10 @@ namespace Services
             double userLongitude = _userLocationService.GetUserLocation().Longitude;
             
             FindMetersPerLat(_userLocationService.GetUserLocation().Latitude);
-  
-#if UNITY_EDITOR
-            userLatitude = 52.5162994656517;
-            userLongitude = 13.4712489301791;
-#endif
-            
+
             double zPosition  = metersPerLat * (latitude - userLatitude);
             double xPosition  = metersPerLon * (longitude- userLongitude);
             return new Vector3((float)xPosition, 0, (float)zPosition);
-        }
-        public Vector3 ConvertUCStoGPS(Vector3 position)
-        {
-            FindMetersPerLat(_userLocationService.GetUserLocation().Latitude);
-            Vector2 geoLocation = new Vector2(0,0);
-            geoLocation.x = ((float)_userLocationService.GetUserLocation().Latitude + (position.z)/metersPerLat); //Calc current lat
-            geoLocation.y = ((float)_userLocationService.GetUserLocation().Longitude + (position.x)/metersPerLon); //Calc current lon
-            return geoLocation;
         }
         private void FindMetersPerLat(double lat)
         {

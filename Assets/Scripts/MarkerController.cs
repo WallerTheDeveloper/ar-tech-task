@@ -3,7 +3,6 @@ using Data;
 using Services;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 [System.Serializable]
 public class BoolUnityEvent : UnityEvent<bool>

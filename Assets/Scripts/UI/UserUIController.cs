@@ -35,9 +35,9 @@ namespace UI
 
         private IEnumerator _currentFade;
         
-        private UserLocationService _userLocationService;
-        private NavigationCalculationService _navigationCalculation;
-        private UIFadingEffectService _fadingEffectService;
+        private ILocationService _userLocationService;
+        private INavigationCalculator _navigationCalculation;
+        private ITextFader _fadingEffectService;
         
         private Queue<string> _instructionTextContainer = new();
 
@@ -58,7 +58,7 @@ namespace UI
             
             InitServices();
 
-            _fadingEffectService.AddTextToQueue();
+            _fadingEffectService.StartShowing();
         }
         private void OnEnable()
         {
@@ -96,16 +96,17 @@ namespace UI
                 string text =
                         ARSession.state == ARSessionState.SessionInitializing
                             ? "Session initializing..."
-                            : $"SessionState: {ARSession.state}\n" +
-                              $"LocationServiceStatus: {Input.location.status}\n" +
-                              $"EarthState: {earthManager.EarthState}\n" +
-                              $"EarthTrackingState: {earthManager.EarthTrackingState}\n" +
-                              $"  LAT/LNG: {pose.Latitude:F6}, {pose.Longitude:F6}\n" +
-                              $"  HorizontalAcc: {pose.HorizontalAccuracy:F6}\n" +
-                              $"  ALT: {pose.Altitude:F2}\n" +
-                              $"  VerticalAcc: {pose.VerticalAccuracy:F2}\n" +
-                              $"  EunRotation: {pose.EunRotation:F2}\n" +
-                              $"  OrientationYawAcc: {pose.OrientationYawAccuracy:F2}\n" +
+                            : 
+                            // $"SessionState: {ARSession.state}\n" +
+                              // $"LocationServiceStatus: {Input.location.status}\n" +
+                              // $"EarthState: {earthManager.EarthState}\n" +
+                              // $"EarthTrackingState: {earthManager.EarthTrackingState}\n" +
+                              $"Your latitude/longitude: {pose.Latitude:F6}, {pose.Longitude:F6}\n" +
+                              // $"  HorizontalAcc: {pose.HorizontalAccuracy:F6}\n" +
+                              $"Your altitude: {pose.Altitude:F2}\n" +
+                              // $"  VerticalAcc: {pose.VerticalAccuracy:F2}\n" +
+                              // $"  EunRotation: {pose.EunRotation:F2}\n" +
+                              // $"  OrientationYawAcc: {pose.OrientationYawAccuracy:F2}\n" +
                               $"  Distance to Target: {distance:F3} km"
                     ;
                 geospatialStatusText.SetText(text);
@@ -150,10 +151,10 @@ namespace UI
         private void InitServices()
         {
             _navigationCalculation = new NavigationCalculationService();
-            _userLocationService = new UserLocationService();
-            _fadingEffectService = new UIFadingEffectService(this, _instructionTextContainer, _textsToDisplay, _fadeEffectDuration, _userMissionText);
+            _userLocationService = new UserLocationService(_arEarthManager);
+            _fadingEffectService = new TextFadingEffectService(this, _instructionTextContainer, _textsToDisplay, _fadeEffectDuration, _userMissionText);
 
-            _userLocationService.Init(_arEarthManager);
+            // _userLocationService.Init(_arEarthManager);
         }
     }
 }
