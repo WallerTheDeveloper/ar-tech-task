@@ -19,11 +19,14 @@ namespace Behaviours
         private float metersPerLat;
         private float metersPerLon;
         
+        private ScreenOrientation previousOrientation;
         private NavigationCalculationService _navigationCalculationService;
         private UserLocationService _userLocationService;
     
         private void Start() // don't change to Awake
         {
+            previousOrientation = Screen.orientation;
+            
             _navigationCalculationService = new NavigationCalculationService();
             
             _userLocationService = new UserLocationService();
@@ -34,7 +37,12 @@ namespace Behaviours
         {
             _navigationCalculationService.CalculateDistance(_userLocationService.GetUserLocation(),
                 _locationData.TargetLatitude, _locationData.TargetLongitude);
-            UpdateCompassRotation();
+            if (Screen.orientation != previousOrientation)
+            {
+                previousOrientation = Screen.orientation;
+                
+                UpdateCompassRotation();
+            }
         }
 
         private void UpdateCompassRotation()
