@@ -49,9 +49,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AltType: 0
-  _latitude: 52.5164202274935
-  _longitude: 13.470410666004307
-  _altitude: 81
+  _latitude: 52.49762816213219
+  _longitude: 13.350490836467735
+  _altitude: 67.9
   _altitudeOffset: 3.33
 --- !u!114 &354384617537492372
 MonoBehaviour:
@@ -65,14 +65,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c89b507a7fbb4155a95caff88f401853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distanceThresholdInKm: 0.04
+  _rendererObjectsTag: 1
+  _showObjectThresholdInKm: 0.04
+  _locationChannel: {fileID: 11400000, guid: d663c76a86117c74d9f4e6c4184d468c, type: 2}
   OnReachedTarget:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UI.UserUIController, Assembly-CSharp
         m_MethodName: ShowScanText
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -81,14 +83,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _childRenderersToHide:
-  - {fileID: 6181703986729650304}
-  - {fileID: 3984931573688472881}
-  - {fileID: 5848193137880300008}
-  - {fileID: 5965618177519155321}
-  - {fileID: 42590551173752685}
-  - {fileID: 7293570545775210784}
-  _locationChannel: {fileID: 11400000, guid: b9cfb5c58ee9f0c438b4d768a9a61691, type: 2}
 --- !u!65 &2352608736275479299
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -108,7 +102,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 4, z: 4}
+  m_Size: {x: 4, y: 60, z: 4}
   m_Center: {x: 0, y: 1.75, z: 2}
 --- !u!1001 &539342534252023758
 PrefabInstance:
@@ -183,10 +177,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5575200175850554900, guid: 607e9e6ecfd5bd64c8e12d36d7a01a98,
+        type: 3}
+      propertyPath: m_TagString
+      value: MarkerMesh
+      objectReference: {fileID: 0}
     - target: {fileID: 5766139200457151206, guid: 607e9e6ecfd5bd64c8e12d36d7a01a98,
         type: 3}
       propertyPath: m_Name
       value: Marker
+      objectReference: {fileID: 0}
+    - target: {fileID: 8986945715163008544, guid: 607e9e6ecfd5bd64c8e12d36d7a01a98,
+        type: 3}
+      propertyPath: m_TagString
+      value: MarkerMesh
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -196,18 +200,6 @@ PrefabInstance:
 --- !u!4 &3783330224612775573 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3746211927036189019, guid: 607e9e6ecfd5bd64c8e12d36d7a01a98,
-    type: 3}
-  m_PrefabInstance: {fileID: 539342534252023758}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &3984931573688472881 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 3472683275836283647, guid: 607e9e6ecfd5bd64c8e12d36d7a01a98,
-    type: 3}
-  m_PrefabInstance: {fileID: 539342534252023758}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &6181703986729650304 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 5959935950505822030, guid: 607e9e6ecfd5bd64c8e12d36d7a01a98,
     type: 3}
   m_PrefabInstance: {fileID: 539342534252023758}
   m_PrefabAsset: {fileID: 0}
@@ -269,43 +261,39 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2826541542202855380, guid: a6df2f597ceb7de46ac1f19e5064d075,
+        type: 3}
+      propertyPath: m_TagString
+      value: MarkerMesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450299239723904797, guid: a6df2f597ceb7de46ac1f19e5064d075,
+        type: 3}
+      propertyPath: m_TagString
+      value: MarkerMesh
+      objectReference: {fileID: 0}
     - target: {fileID: 3648747948045636143, guid: a6df2f597ceb7de46ac1f19e5064d075,
         type: 3}
       propertyPath: m_Name
       value: 4x4Area
+      objectReference: {fileID: 0}
+    - target: {fileID: 5645166883147967690, guid: a6df2f597ceb7de46ac1f19e5064d075,
+        type: 3}
+      propertyPath: m_TagString
+      value: MarkerMesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 6319748570698909584, guid: a6df2f597ceb7de46ac1f19e5064d075,
+        type: 3}
+      propertyPath: m_TagString
+      value: MarkerMesh
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6df2f597ceb7de46ac1f19e5064d075, type: 3}
---- !u!23 &42590551173752685 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 5087139481748628208, guid: a6df2f597ceb7de46ac1f19e5064d075,
-    type: 3}
-  m_PrefabInstance: {fileID: 5048088259075376541}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &5848193137880300008 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 1668193516040846453, guid: a6df2f597ceb7de46ac1f19e5064d075,
-    type: 3}
-  m_PrefabInstance: {fileID: 5048088259075376541}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &5965618177519155321 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 1496404154772782564, guid: a6df2f597ceb7de46ac1f19e5064d075,
-    type: 3}
-  m_PrefabInstance: {fileID: 5048088259075376541}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7206876577259185118 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2453777448146298435, guid: a6df2f597ceb7de46ac1f19e5064d075,
-    type: 3}
-  m_PrefabInstance: {fileID: 5048088259075376541}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &7293570545775210784 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 2538233871844832445, guid: a6df2f597ceb7de46ac1f19e5064d075,
     type: 3}
   m_PrefabInstance: {fileID: 5048088259075376541}
   m_PrefabAsset: {fileID: 0}

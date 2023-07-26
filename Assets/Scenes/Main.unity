@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708985, g: 0.3783704, b: 0.35722548, a: 1}
+  m_IndirectSpecularColor: {r: 0.37099704, g: 0.37852412, b: 0.35739636, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -235,7 +235,7 @@ MonoBehaviour:
   _longitude: 13.471192
   _height: 81
   _ecefX: 3782565.527873545
-  _ecefY: 906102.4090794907
+  _ecefY: 906102.4090794908
   _ecefZ: 5038033.648922201
   _scale: 1
 --- !u!114 &339614328
@@ -568,194 +568,43 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
-      propertyPath: _targetTag
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: _locationChannel
-      value: 
-      objectReference: {fileID: 11400000, guid: d663c76a86117c74d9f4e6c4184d468c,
-        type: 2}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: _rendererObjectsTag
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: _distanceThresholdInKm
-      value: 0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: _showObjectThresholdInKm
-      value: 0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
       propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 78394406}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 78394406}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
-      objectReference: {fileID: 78394406}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowScanText
-      objectReference: {fileID: 0}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: ShowScanText
-      objectReference: {fileID: 0}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: ShowScanText
-      objectReference: {fileID: 0}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UI.UserUIController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UI.UserUIController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: UI.UserUIController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 601724061237078359, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: m_TagString
-      value: MarkerMesh
-      objectReference: {fileID: 0}
-    - target: {fileID: 1277377776550707725, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: m_TagString
-      value: MarkerMesh
-      objectReference: {fileID: 0}
     - target: {fileID: 2147284243673251758, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
       propertyPath: m_Name
       value: Specified Marker
       objectReference: {fileID: 0}
+    - target: {fileID: 2147284243673251758, guid: 7678cf0808c2b2f4caeffee427ec93ed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2352608736275479299, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
       propertyPath: m_Size.y
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5342173128805927386, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: m_TagString
-      value: MarkerMesh
+      value: 17.09
       objectReference: {fileID: 0}
     - target: {fileID: 5797605953064890555, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
       propertyPath: _altitude
-      value: 81.63
-      objectReference: {fileID: 0}
-    - target: {fileID: 5797605953064890555, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: _latitude
-      value: 52.497628192394025
-      objectReference: {fileID: 0}
-    - target: {fileID: 5797605953064890555, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: _longitude
-      value: 13.35049102453072
-      objectReference: {fileID: 0}
-    - target: {fileID: 7005222810912082505, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: m_TagString
-      value: MarkerMesh
-      objectReference: {fileID: 0}
-    - target: {fileID: 7633466568118708864, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: m_TagString
-      value: MarkerMesh
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 8048526534569016384, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8196.06
+      value: -8169.93
       objectReference: {fileID: 0}
     - target: {fileID: 8048526534569016384, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16.98
+      value: -16.593348
       objectReference: {fileID: 0}
     - target: {fileID: 8048526534569016384, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2076.344
+      value: -2077.36
       objectReference: {fileID: 0}
     - target: {fileID: 8048526534569016384, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
@@ -791,11 +640,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8918300089959268846, guid: 7678cf0808c2b2f4caeffee427ec93ed,
-        type: 3}
-      propertyPath: m_TagString
-      value: MarkerMesh
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1441,6 +1285,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AR Session Origin
+      objectReference: {fileID: 0}
+    - target: {fileID: 6563387599241737476, guid: e4680a1bebac55440b67201788a950b7,
+        type: 3}
+      propertyPath: near clip plane
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7191528527008183858, guid: e4680a1bebac55440b67201788a950b7,
         type: 3}
