@@ -568,6 +568,17 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
+      propertyPath: _locationChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: d663c76a86117c74d9f4e6c4184d468c,
+        type: 2}
+    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
+        type: 3}
+      propertyPath: _distanceThresholdInKm
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
+        type: 3}
       propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1174,7 +1185,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _locationChannel
       value: 
-      objectReference: {fileID: 11400000, guid: b9cfb5c58ee9f0c438b4d768a9a61691,
+      objectReference: {fileID: 11400000, guid: d663c76a86117c74d9f4e6c4184d468c,
         type: 2}
     - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
         type: 3}
@@ -1224,7 +1235,8 @@ PrefabInstance:
     - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
         type: 3}
       propertyPath: '_textsToDisplay.Array.data[2]'
-      value: By reaching point, you will see area 4x4
+      value: When you get within 40 meters of the point, you will see an exclamation
+        mark
       objectReference: {fileID: 0}
     - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
         type: 3}
@@ -1234,6 +1246,11 @@ PrefabInstance:
     - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
         type: 3}
       propertyPath: '_textsToDisplay.Array.data[4]'
+      value: Use compass to navigate
+      objectReference: {fileID: 0}
+    - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
+        type: 3}
+      propertyPath: '_textsToDisplay.Array.data[5]'
       value: Use compass to navigate
       objectReference: {fileID: 0}
     - target: {fileID: 5951386571782203461, guid: 1ae8ad25ce0c0bc40b4c050875008128,
@@ -1394,6 +1411,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032082252774159486, guid: e4680a1bebac55440b67201788a950b7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

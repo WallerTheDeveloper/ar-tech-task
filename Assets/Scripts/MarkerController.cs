@@ -16,16 +16,20 @@ public class MarkerController : MonoBehaviour
     
     private UserLocationService _userLocationService;
     
-    private void Start()
+    private void Awake()
     {
         ShowObject(false);
+        
     }
-
-    private void ShowObject(bool enabledValue)
+    private void Update()
     {
-        foreach (var childRenderer in _childRenderersToHide)
+        if (_locationChannel.CurrentDistance <= _distanceThresholdInKm)
         {
-            childRenderer.enabled = enabledValue;
+            ShowObject(true);
+        }
+        else
+        {
+            ShowObject(false);
         }
     }
     private void OnTriggerStay (Collider col)
@@ -34,19 +38,18 @@ public class MarkerController : MonoBehaviour
 
         OnReachedTarget?.Invoke(true);
     }
-
     private void OnTriggerExit(Collider other)
     {
         print("TRIGGER EXIT");
 
         OnReachedTarget?.Invoke(false);
     }
-
-    private void Update()
+    private void ShowObject(bool enabledValue)
     {
-        if (_locationChannel.CurrentDistance <= _distanceThresholdInKm)
+        foreach (var childRenderer in _childRenderersToHide)
         {
-            ShowObject(true);
+            childRenderer.enabled = enabledValue;
         }
     }
+    
 }

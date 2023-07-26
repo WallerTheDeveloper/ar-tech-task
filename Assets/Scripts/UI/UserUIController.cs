@@ -98,12 +98,14 @@ namespace UI
              var distance = _navigationCalculation.CalculateDistance(pose, _locationData.TargetLatitude,
                  _locationData.TargetLongitude);
              
-             _locationChannel.CurrentDistance = distance;
+             UpdateCurrentDistance(distance);
+             
     #if UNITY_EDITOR
              pose.Latitude = 52.5162994656517;
              pose.Longitude = 13.4712489301791;
              distance = _navigationCalculation.CalculateDistance(pose, _locationData.TargetLatitude,
                  _locationData.TargetLongitude);
+             UpdateCurrentDistance(distance);
     #endif
              if(geospatialStatusText != null)
              {
@@ -125,6 +127,12 @@ namespace UI
                  geospatialStatusText.SetText(text);
              }
          }
+
+        private void UpdateCurrentDistance(double distance)
+        {
+            _locationChannel.CurrentDistance = distance;
+        }
+
         private void InitServices()
         {
             _navigationCalculation = new NavigationCalculationService();

@@ -7,14 +7,6 @@ namespace Services
 {
     public class NavigationCalculationService
     {
-        // public IEnumerator CalculateEverySeconds(float seconds, GeospatialPose pose, double targetLatitude, double targetLongitude)
-        // {
-        //     while (true) 
-        //     {
-        //         CalculateDistance(pose, targetLatitude, targetLongitude);
-        //         yield return new WaitForSeconds(seconds);
-        //     } 
-        // }
         public double CalculateDistance(GeospatialPose pose, double targetLatitude, double targetLongitude)
         {
 // #if UNITY_EDITOR
