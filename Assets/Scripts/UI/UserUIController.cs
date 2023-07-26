@@ -66,34 +66,13 @@ namespace UI
         }
         private void Update()
          {
-             if (ARSession.state != ARSessionState.SessionInitializing &&
-                 ARSession.state != ARSessionState.SessionTracking)
+             if (IsSessionInitializing())
              {
                  return;
              }
-             // Check feature support and enable Geospatial API when it's supported.
-             var featureSupport = earthManager.IsGeospatialModeSupported(GeospatialMode.Enabled);
-             switch (featureSupport)
-             {
-                 case FeatureSupported.Unknown:
-                     break;
-                 case FeatureSupported.Unsupported:
-                     Debug.Log("The Geospatial API is not supported by this device.");
-                     break;
-                 case FeatureSupported.Supported:
-                     if (arcoreExtensions.ARCoreExtensionsConfig.GeospatialMode == GeospatialMode.Disabled)
-                     {
-                         arcoreExtensions.ARCoreExtensionsConfig.GeospatialMode =
-                             GeospatialMode.Enabled;
-                         arcoreExtensions.ARCoreExtensionsConfig.StreetscapeGeometryMode =
-                             StreetscapeGeometryMode.Enabled;
-                     }
-                     break;
-             }
-             
-             var pose = _userLocationService.GetUserLocation();
-             
-             var supported = earthManager.IsGeospatialModeSupported(GeospatialMode.Enabled);
+             EnableGeospatialIfSupported();
+
+             GeospatialPose pose = _userLocationService.GetUserLocation();
          
              var distance = _navigationCalculation.CalculateDistance(pose, _locationData.TargetLatitude,
                  _locationData.TargetLongitude);
@@ -107,26 +86,61 @@ namespace UI
                  _locationData.TargetLongitude);
              UpdateCurrentDistance(distance);
     #endif
-             if(geospatialStatusText != null)
-             {
-                 string text =
-                         ARSession.state == ARSessionState.SessionInitializing ? "Session initializing..." 
-                             : $"SessionState: {ARSession.state}\n" +
-                               $"LocationServiceStatus: {Input.location.status}\n" +
-                               $"FeatureSupported: {supported}\n" +
-                               $"EarthState: {earthManager.EarthState}\n" +
-                               $"EarthTrackingState: {earthManager.EarthTrackingState}\n" +
-                               $"  LAT/LNG: {pose.Latitude:F6}, {pose.Longitude:F6}\n" +
-                               $"  HorizontalAcc: {pose.HorizontalAccuracy:F6}\n" +
-                               $"  ALT: {pose.Altitude:F2}\n" +
-                               $"  VerticalAcc: {pose.VerticalAccuracy:F2}\n" +
-                               $"  EunRotation: {pose.EunRotation:F2}\n" +
-                               $"  OrientationYawAcc: {pose.OrientationYawAccuracy:F2}\n" +
-                               $"  Distance to Target: {distance:F3} km"
-                     ;
-                 geospatialStatusText.SetText(text);
-             }
+             ShowCurrentInfo(pose, distance);
          }
+
+        private void ShowCurrentInfo(GeospatialPose pose, double distance)
+        {
+            if (geospatialStatusText != null)
+            {
+                string text =
+                        ARSession.state == ARSessionState.SessionInitializing
+                            ? "Session initializing..."
+                            : $"SessionState: {ARSession.state}\n" +
+                              $"LocationServiceStatus: {Input.location.status}\n" +
+                              $"EarthState: {earthManager.EarthState}\n" +
+                              $"EarthTrackingState: {earthManager.EarthTrackingState}\n" +
+                              $"  LAT/LNG: {pose.Latitude:F6}, {pose.Longitude:F6}\n" +
+                              $"  HorizontalAcc: {pose.HorizontalAccuracy:F6}\n" +
+                              $"  ALT: {pose.Altitude:F2}\n" +
+                              $"  VerticalAcc: {pose.VerticalAccuracy:F2}\n" +
+                              $"  EunRotation: {pose.EunRotation:F2}\n" +
+                              $"  OrientationYawAcc: {pose.OrientationYawAccuracy:F2}\n" +
+                              $"  Distance to Target: {distance:F3} km"
+                    ;
+                geospatialStatusText.SetText(text);
+            }
+        }
+
+        private void EnableGeospatialIfSupported()
+        {
+            // Check feature support and enable Geospatial API when it's supported.
+            var featureSupport = earthManager.IsGeospatialModeSupported(GeospatialMode.Enabled);
+            switch (featureSupport)
+            {
+                case FeatureSupported.Unknown:
+                    break;
+                case FeatureSupported.Unsupported:
+                    Debug.Log("The Geospatial API is not supported by this device.");
+                    break;
+                case FeatureSupported.Supported:
+                    if (arcoreExtensions.ARCoreExtensionsConfig.GeospatialMode == GeospatialMode.Disabled)
+                    {
+                        arcoreExtensions.ARCoreExtensionsConfig.GeospatialMode =
+                            GeospatialMode.Enabled;
+                        arcoreExtensions.ARCoreExtensionsConfig.StreetscapeGeometryMode =
+                            StreetscapeGeometryMode.Enabled;
+                    }
+
+                    break;
+            }
+        }
+
+        private bool IsSessionInitializing()
+        {
+            return ARSession.state != ARSessionState.SessionInitializing &&
+                   ARSession.state != ARSessionState.SessionTracking;
+        }
 
         private void UpdateCurrentDistance(double distance)
         {

@@ -3,6 +3,7 @@ using UnityEngine.XR.ARFoundation;
 
 public class PortalController : MonoBehaviour
 {
+    [SerializeField] private CustomProjectTags _trackedObjectTag;
     public ARTrackedImageManager trackedImageManager;
     
     private Transform portal;
@@ -25,7 +26,8 @@ public class PortalController : MonoBehaviour
         {
             foreach (ARTrackedImage trackedImage in trackedImageManager.trackables)
             {
-                if (trackedImage.tag == "Portal")
+                // if (trackedImage.tag == "Portal")
+                if (trackedImage.CompareTag(_trackedObjectTag.ToString()))
                 {
                     portal = trackedImage.transform;
                     initialScale = portal.localScale;
@@ -46,7 +48,8 @@ public class PortalController : MonoBehaviour
         }
         foreach (ARTrackedImage trackedImage in eventArgs.updated)
         {
-            if (trackedImage.tag == "Portal" && trackedImage.trackingState == UnityEngine.XR.ARSubsystems.TrackingState.Tracking)
+            // if (trackedImage.tag == "Portal" && trackedImage.trackingState == UnityEngine.XR.ARSubsystems.TrackingState.Tracking)
+            if (trackedImage.CompareTag(_trackedObjectTag.ToString()) && trackedImage.trackingState == UnityEngine.XR.ARSubsystems.TrackingState.Tracking)
             {
                 float distanceToMarker = Vector3.Distance(Camera.main.transform.position, trackedImage.transform.position);
                 

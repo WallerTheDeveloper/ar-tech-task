@@ -9,7 +9,6 @@ namespace Configuration
         {
             StartCoroutine(StartLocationService());
         }
-
         private void OnDisable()
         {
             StopCoroutine(StartLocationService());

@@ -568,10 +568,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
+      propertyPath: _targetTag
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
+        type: 3}
       propertyPath: _locationChannel
       value: 
       objectReference: {fileID: 11400000, guid: d663c76a86117c74d9f4e6c4184d468c,
         type: 2}
+    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
+        type: 3}
+      propertyPath: _rendererObjectsTag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
       propertyPath: _distanceThresholdInKm
@@ -579,8 +589,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
+      propertyPath: _showObjectThresholdInKm
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
+        type: 3}
       propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 354384617537492372, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
@@ -677,6 +692,16 @@ PrefabInstance:
       propertyPath: OnReachedTarget.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 601724061237078359, guid: 7678cf0808c2b2f4caeffee427ec93ed,
+        type: 3}
+      propertyPath: m_TagString
+      value: MarkerMesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277377776550707725, guid: 7678cf0808c2b2f4caeffee427ec93ed,
+        type: 3}
+      propertyPath: m_TagString
+      value: MarkerMesh
+      objectReference: {fileID: 0}
     - target: {fileID: 2147284243673251758, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
       propertyPath: m_Name
@@ -686,6 +711,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.y
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5342173128805927386, guid: 7678cf0808c2b2f4caeffee427ec93ed,
+        type: 3}
+      propertyPath: m_TagString
+      value: MarkerMesh
       objectReference: {fileID: 0}
     - target: {fileID: 5797605953064890555, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
@@ -701,6 +731,16 @@ PrefabInstance:
         type: 3}
       propertyPath: _longitude
       value: 13.35049102453072
+      objectReference: {fileID: 0}
+    - target: {fileID: 7005222810912082505, guid: 7678cf0808c2b2f4caeffee427ec93ed,
+        type: 3}
+      propertyPath: m_TagString
+      value: MarkerMesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 7633466568118708864, guid: 7678cf0808c2b2f4caeffee427ec93ed,
+        type: 3}
+      propertyPath: m_TagString
+      value: MarkerMesh
       objectReference: {fileID: 0}
     - target: {fileID: 8048526534569016384, guid: 7678cf0808c2b2f4caeffee427ec93ed,
         type: 3}
@@ -751,6 +791,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8918300089959268846, guid: 7678cf0808c2b2f4caeffee427ec93ed,
+        type: 3}
+      propertyPath: m_TagString
+      value: MarkerMesh
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1357,6 +1402,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2149498057819625872, guid: e4680a1bebac55440b67201788a950b7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.1572373
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149498057819625872, guid: e4680a1bebac55440b67201788a950b7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.387841
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149498057819625872, guid: e4680a1bebac55440b67201788a950b7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.4412018
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149498057819625872, guid: e4680a1bebac55440b67201788a950b7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149498057819625872, guid: e4680a1bebac55440b67201788a950b7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.897408
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149498057819625872, guid: e4680a1bebac55440b67201788a950b7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149498057819625872, guid: e4680a1bebac55440b67201788a950b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -232.361
+      objectReference: {fileID: 0}
     - target: {fileID: 2663813057364497163, guid: e4680a1bebac55440b67201788a950b7,
         type: 3}
       propertyPath: m_Name

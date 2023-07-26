@@ -1,6 +1,4 @@
-﻿using System;
-using Data;
-using Google.XR.ARCoreExtensions;
+﻿using Google.XR.ARCoreExtensions;
 using UnityEngine.XR.ARSubsystems;
 
 namespace Services

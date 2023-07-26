@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace UI
 {
@@ -16,13 +18,15 @@ namespace UI
         
         private float timeSinceLastChange = 0.0f;
         
-        private void Start()
+        private void OnEnable()
         {
             textMeshPro = GetComponent<TextMeshProUGUI>();
-
             StartCoroutine(ChangeColorSmoothly());
         }
-
+        private void OnDisable()
+        {
+            StopCoroutine(ChangeColorSmoothly());
+        }
         private IEnumerator ChangeColorSmoothly()
         {
             while (true)

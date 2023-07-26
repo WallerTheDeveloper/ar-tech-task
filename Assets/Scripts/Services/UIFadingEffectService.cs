@@ -78,7 +78,7 @@ namespace Services
                 _userInstance.StopCoroutine(fadeCoroutine);
             }
 
-            MonoBehaviour.print("All stopped");
+            MonoBehaviour.print("Text display coroutines stopped");
         }
     }
 }

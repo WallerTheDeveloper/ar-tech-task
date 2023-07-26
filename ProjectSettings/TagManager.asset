@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Portal
+  - MarkerMesh
   layers:
   - Default
   - TransparentFX
