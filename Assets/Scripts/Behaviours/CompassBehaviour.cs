@@ -44,8 +44,12 @@ namespace Behaviours
             double targetLatitude = _locationData.TargetLatitude;
             double targetLongitude = _locationData.TargetLongitude;
 
+            // Vector3 compassCoordinates = _conversionService.ConvertUCStoGPS(_compassPrefab.transform.position);
+            // compassCoordinates = _conversionService.ConvertGPStoUCS(compassCoordinates.x, compassCoordinates.z);
             Vector3 targetPosition = _conversionService.ConvertGPStoUCS(targetLatitude, targetLongitude);
-            
+
+            print("Compass position: " + _compassPrefab.transform.position);
+            // _compassPrefab.transform.position = compassCoordinates;
             _compassPrefab.transform.LookAt(targetPosition);
 
             
