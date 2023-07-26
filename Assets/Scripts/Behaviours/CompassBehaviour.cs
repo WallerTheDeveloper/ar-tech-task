@@ -52,8 +52,15 @@ namespace Behaviours
 
             Vector3 targetPosition = ConvertGPStoUCS(targetLatitude, targetLongitude);
             
+            Debug.Log("Target Latitude: " + targetLatitude);
+            Debug.Log("Target Longitude: " + targetLongitude);
+            Debug.Log("Target Position in Unity coordinates: " + targetPosition);
+            
             Vector3 direction = (targetPosition - _compassPrefab.transform.position).normalized;
             Quaternion targetRotation = Quaternion.LookRotation(direction); // Calculate the rotation needed to look at the target position
+            
+            Debug.Log("Direction: " + direction);
+            Debug.Log("Target Rotation: " + targetRotation.eulerAngles);
             
             _compassPrefab.transform.rotation = targetRotation; // Apply the rotation to the compass
         }
