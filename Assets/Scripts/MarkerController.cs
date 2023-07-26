@@ -1,5 +1,4 @@
-﻿using System;
-using Data;
+﻿using Data;
 using Services;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,13 +11,12 @@ public class MarkerController : MonoBehaviour
 {
     public BoolUnityEvent OnReachedTarget;
     [SerializeField] private float _distanceThresholdInKm;
-    // [SerializeField] private UnityEvent OnReachedTarget;
     [SerializeField] private Renderer[] _childRenderersToHide;
     [SerializeField] private LocationDataChannel _locationChannel;
     
     private UserLocationService _userLocationService;
     
-    private void OnEnable()
+    private void Start()
     {
         ShowObject(false);
     }
