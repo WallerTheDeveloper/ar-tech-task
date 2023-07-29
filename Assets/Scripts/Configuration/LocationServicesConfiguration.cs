@@ -21,7 +21,7 @@ namespace Configuration
             {
                 yield break;
             }
-
+  
             Input.location.Start();
 
             while (Input.location.status == LocationServiceStatus.Initializing)

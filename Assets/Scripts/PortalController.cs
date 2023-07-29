@@ -51,7 +51,7 @@ public class PortalController : MonoBehaviour
             {
                 float distanceToMarker = Vector3.Distance(Camera.main.transform.position, trackedImage.transform.position);
                 
-                portal.localScale = initialScale * distanceToMarker;
+                portal.localScale = -initialScale * distanceToMarker;
                 
                 portal.position = trackedImage.transform.position;
 
