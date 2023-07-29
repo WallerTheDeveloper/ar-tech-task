@@ -52,7 +52,10 @@ public class PortalController : MonoBehaviour
                 float distanceToMarker = Vector3.Distance(Camera.main.transform.position, trackedImage.transform.position);
                 
                 portal.localScale = -initialScale * distanceToMarker;
-                
+                print("local scale: " + portal.localPosition);
+                print("Init scale: " + initialScale);
+                print("distance: " + distanceToMarker);
+
                 portal.position = trackedImage.transform.position;
 
                 portal.rotation = trackedImage.transform.rotation * Quaternion.Euler(-270f, 0f, 0f);
